@@ -12,15 +12,16 @@ public class ResolveDeadLockTest {
         Runnable block1 = new Runnable() {
             public void run() {
                 synchronized (a) {
-                    try {
-                        // Adding delay so that both threads can start trying to
-                        // lock resources
+                    try
+                    {
+                        // Adding delay so that both threads can start trying to lock resources
                         Thread.sleep(100);
-                    } catch (InterruptedException e) {
+                    } 
+                    catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     // Thread-1 have A but need B also
-                    synchronized (b) {
+                synchronized (b) {
                         System.out.println("In block 1");
                     }
                 }
